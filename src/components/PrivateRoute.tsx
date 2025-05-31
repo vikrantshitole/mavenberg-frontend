@@ -5,7 +5,7 @@ import type { CommonProps } from '../types/common';
 
 
 const PrivateRoute: React.FC<CommonProps> = ({ children }) => {
-  const isAuthenticated  = useSelector(selectIsAuthenticated);
+  const isAuthenticated: boolean = useSelector(selectIsAuthenticated);
 
   if (!isAuthenticated) {
     return <Navigate to="/login" replace />;

@@ -13,19 +13,19 @@ const useLargeSetData = () => {
                 setError(null)
                 const largeDataSet = await api.get('/users')
                 setData(largeDataSet.data)
-                
+
             } catch (error) {
                 console.error('Error fetching large dataset:', error)
                 setError('Failed to fetch data')
-            }finally {
+            } finally {
                 setLoading(false)
             }
         }
-    
+
         fetchData()
     }, [])
-    
-    return { data , loading, error }
+
+    return { data, loading, error }
 }
 
 export default useLargeSetData
