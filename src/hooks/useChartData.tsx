@@ -1,6 +1,5 @@
 import React, { use, useEffect } from 'react'
 import { api } from '../services/api'
-import type { ChartDataProps } from '../types/charts'
 
 const useChartData = () => {
   const [data, setData] = React.useState({line_chart: {}, pie_chart: {}, bar_chart: {}})

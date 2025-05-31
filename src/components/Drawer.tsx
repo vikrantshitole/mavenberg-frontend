@@ -2,9 +2,8 @@ import React from 'react'
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router';
 import { logout } from '../store/authSlice';
-interface DrawerProps {
-    isDrawerOpen: boolean;
-}
+import type { DrawerProps } from '../types/common';
+
 const Drawer:React.FC<DrawerProps> = ({isDrawerOpen}) => {
     const dispatch = useDispatch();
     return (

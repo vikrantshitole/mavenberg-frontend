@@ -5,12 +5,7 @@ import {
   type MRT_ColumnDef,
   type MRT_RowVirtualizer,
 } from 'material-react-table';
-
-type TableProps = {
-  headers: MRT_ColumnDef<{header: string, accessorKey: string, size: number}>[];
-  data: any[];
-};
-
+import type { TableProps } from '../types/table';
 
 const VirtualTable: React.FC<TableProps> = ({ headers, data }) => {
   const rowVirtualizerInstanceRef = useRef<MRT_RowVirtualizer>(null);
@@ -25,14 +20,14 @@ const VirtualTable: React.FC<TableProps> = ({ headers, data }) => {
     enableGlobalFilterModes: false,
     enablePagination: false,
     enableRowNumbers: true,
-    enableSorting:false,  
+    enableSorting: false,
     enableColumnActions: false,
     enableRowSelection: false,
     enableRowActions: false,
     enableRowVirtualization: true,
-    muiTableContainerProps: { sx: { maxHeight: '600px' , width: 'auto'} },
+    muiTableContainerProps: { sx: { maxHeight: '600px', width: 'auto' } },
     rowVirtualizerInstanceRef, //optional
-    rowVirtualizerOptions: { overscan: 10 ,count:data.length,enabled:true}, //optionally customize the row virtualizer
+    rowVirtualizerOptions: { overscan: 10, count: (data ?? []).length, enabled: true }, //optionally customize the row virtualizer
     columnVirtualizerOptions: { overscan: 2 }, //optionally customize the column virtualizer
   });
 

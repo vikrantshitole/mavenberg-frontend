@@ -1,23 +1,23 @@
-import { lazy, Suspense, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React, { lazy, Suspense } from 'react'
 import './App.scss'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router'
 import { useSelector } from 'react-redux'
 import { selectIsAuthenticated } from './store/authSlice'
-import DashboardLayout from './layout/DashboardLayout'
-import PrivateRoute from './components/PrivateRoute'
-import DataTableView from './pages/DataTableView'
-import Dashboard from './pages/Dashboard'
+import type { CommonProps } from './types/common'
+import withErrorBoundary from './components/ErrorBoundary'
 
-const Login = lazy(() => import('./pages/Login'))
+const Login = lazy(() => import('./pages/Login')) as React.LazyExoticComponent<React.FC>;
+const DashboardLayout = lazy(()=>import('./layout/DashboardLayout')) as React.LazyExoticComponent<React.FC<CommonProps>>;
+const PrivateRoute =  lazy(()=>import('./components/PrivateRoute')) as React.LazyExoticComponent<React.FC<CommonProps>>;
+const DataTableView = lazy(() => import('./pages/DataTableView'))
+const Dashboard = lazy(()=> import('./pages/Dashboard')) as React.LazyExoticComponent<React.FC>;
+const FallBack = lazy(() => import('./components/FallBack')) as React.LazyExoticComponent<React.FC>;
 function App() {
   const isAuthenticated = useSelector(selectIsAuthenticated);
-  // const isAuthenticated = false; // Replace with actual authentication logic
   return (
     <>
       <BrowserRouter>
-        <Suspense>
+        <Suspense fallback={<FallBack />}>
           <Routes>
             <Route path='login' element={<Login />} />
             <Route 
@@ -57,4 +57,4 @@ function App() {
   )
 }
 
-export default App
+export default withErrorBoundary(App)

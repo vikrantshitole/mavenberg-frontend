@@ -1,21 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-interface AuthState {
-    isAuthenticated: boolean;
-    user: {
-        id: string;
-        email: string;
-        first_name: string;
-        last_name: string;
-        role_id: string;
-        phone_number: string;
-        role: {
-            id: string;
-            name: string;
-        }
-    }
-    token: string;
-}
+import type { AuthState } from '../types/auth';
+
 const user = JSON.parse(localStorage.getItem('user') || '{}');
 const token = localStorage.getItem('token') || '';
 

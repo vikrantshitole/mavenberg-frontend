@@ -5,10 +5,10 @@ import { useDispatch } from 'react-redux'
 import { login } from '../store/authSlice'
 
 const Login = () => {
-    const [email, setEmail] = React.useState('')
-    const [password, setPassword] = React.useState('')
+    const [email, setEmail] = React.useState<string>('')
+    const [password, setPassword] = React.useState<string>('')
     const [error, setError] = React.useState<string | null>(null)
-    const [loading, setLoading] = React.useState(false)
+    const [loading, setLoading] = React.useState<boolean>(false)
     const dispatch = useDispatch()
     const navigate = useNavigate()
     React.useEffect(() => {

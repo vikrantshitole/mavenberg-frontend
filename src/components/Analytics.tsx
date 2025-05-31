@@ -1,9 +1,9 @@
 import React from 'react'
 import { Bar, BarChart, CartesianGrid, Cell, Legend, Line, LineChart, Pie, PieChart, Tooltip, XAxis, YAxis } from 'recharts'
-import type { ChartDataProps } from '../../types/charts';
+import type { ChartDataProps } from '../types/charts';
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
-const AdminDashboard: React.FC<ChartDataProps> = ({ data }) => {
+const Analytics: React.FC<ChartDataProps> = ({ data }) => {
     const line_chart = data?.line_chart ?? { name: '', data: [] };
     const pie_chart = data?.pie_chart ?? { name: '', data: [] };
     const bar_chart = data?.bar_chart ?? { name: '', data: [] };
@@ -114,4 +114,4 @@ const AdminDashboard: React.FC<ChartDataProps> = ({ data }) => {
     )
 }
 
-export default AdminDashboard
+export default Analytics

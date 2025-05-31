@@ -1,11 +1,10 @@
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import { selectIsAuthenticated } from '../store/authSlice';
-interface PrivateRouteProps {
-  children: React.ReactNode;
-}
+import type { CommonProps } from '../types/common';
 
-const PrivateRoute: React.FC<PrivateRouteProps> = ({ children }) => {
+
+const PrivateRoute: React.FC<CommonProps> = ({ children }) => {
   const isAuthenticated  = useSelector(selectIsAuthenticated);
 
   if (!isAuthenticated) {

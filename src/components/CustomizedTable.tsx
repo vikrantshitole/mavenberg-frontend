@@ -1,17 +1,9 @@
 import React from 'react';
 import { FixedSizeList as List } from 'react-window';
-interface Header {
-  header: string;
-  accessorKey: string;
-  size?: number;
-}
-interface TableProps {
-  headers:Header [];
-  data?: any[];
-}
+import type { Header, TableProps } from '../types/table';
 
 const TableHeader: React.FC<TableProps> = ({ headers }) => (
-  <div className="flex bg-gray-50 dark:bg-gray-800 min-w-[514] text-gray-700 dark:text-gray-600 text-xs font-bold uppercase border-b border-gray-200">
+  <div className="flex bg-gray-50 dark:bg-gray-800 min-w-[514] text-gray-700 dark:text-gray-200 text-xs font-bold uppercase border-b border-gray-200">
     {headers.map((header: Header, index: number) => (
       <div
         key={header.accessorKey || index}
@@ -38,7 +30,7 @@ const Row: React.FC<{
   return (
     <div
       style={{...style,overflowX: 'auto'}}
-      className="flex border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 text-sm text-gray-700 dark:text-gray-600 overflow-x-auto"
+      className="flex border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 dark:hover:text-gray-200 text-sm text-gray-700 dark:text-gray-600 overflow-x-auto"
     >
       {headers.map((header, i) => (
         <div
