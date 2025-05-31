@@ -5,6 +5,8 @@ import './App.scss'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router'
 import { useSelector } from 'react-redux'
 import { selectIsAuthenticated } from './store/authSlice'
+import DashboardLayout from './layout/DashboardLayout'
+import PrivateRoute from './components/PrivateRoute'
 
 const Login = lazy(() => import('./pages/Login'))
 function App() {
@@ -16,7 +18,25 @@ function App() {
         <Suspense>
           <Routes>
             <Route path='login' element={<Login />} />
-          <Route path="/" element={!isAuthenticated ? <Navigate to="/login" replace /> : <Navigate to="/dashboard" replace />} />
+            <Route 
+              path='dashboard' 
+              element={
+              <PrivateRoute>
+                <DashboardLayout>
+                  CHARTS
+                </DashboardLayout>
+              </PrivateRoute>} 
+              />
+              <Route 
+              path='dashboard/tables' 
+              element={
+              <PrivateRoute>
+                <DashboardLayout>
+                  Tables
+                </DashboardLayout>
+              </PrivateRoute>} 
+              />
+            <Route path="/" element={!isAuthenticated ? <Navigate to="/login" replace /> : <Navigate to="/dashboard" replace />} />
 
           </Routes>
         </Suspense>
