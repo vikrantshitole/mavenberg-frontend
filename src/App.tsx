@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux'
 import { selectIsAuthenticated } from './store/authSlice'
 import DashboardLayout from './layout/DashboardLayout'
 import PrivateRoute from './components/PrivateRoute'
+import DataTableView from './pages/DataTableView'
 
 const Login = lazy(() => import('./pages/Login'))
 function App() {
@@ -32,7 +33,7 @@ function App() {
               element={
               <PrivateRoute>
                 <DashboardLayout>
-                  Tables
+                  <DataTableView />
                 </DashboardLayout>
               </PrivateRoute>} 
               />
