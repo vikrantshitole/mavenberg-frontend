@@ -8,6 +8,7 @@ import { selectIsAuthenticated } from './store/authSlice'
 import DashboardLayout from './layout/DashboardLayout'
 import PrivateRoute from './components/PrivateRoute'
 import DataTableView from './pages/DataTableView'
+import Dashboard from './pages/Dashboard'
 
 const Login = lazy(() => import('./pages/Login'))
 function App() {
@@ -24,7 +25,7 @@ function App() {
               element={
               <PrivateRoute>
                 <DashboardLayout>
-                  CHARTS
+                  <Dashboard />
                 </DashboardLayout>
               </PrivateRoute>} 
               />
@@ -34,6 +35,16 @@ function App() {
               <PrivateRoute>
                 <DashboardLayout>
                   <DataTableView />
+                </DashboardLayout>
+              </PrivateRoute>} 
+              />
+
+              <Route 
+              path='dashboard/custom-tables' 
+              element={
+              <PrivateRoute>
+                <DashboardLayout>
+                  <DataTableView isCustom={true} />
                 </DashboardLayout>
               </PrivateRoute>} 
               />

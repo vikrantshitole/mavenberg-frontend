@@ -1,7 +1,7 @@
 export const TABLEHEADERS = [
-    {title: 'First Name', key: 'first_name'},
-    {title: 'Last Name', key: 'last_name'},
-    {title: 'Email', key: 'email'},
-    {title: 'Phone', key: 'phone_number'},
-    {title: 'Role', key: 'role_name'},
+    {header: 'First Name', accessorKey: 'first_name', size: 200},
+    {header: 'Last Name', accessorKey: 'last_name', size: 200},
+    {header: 'Email', accessorKey: 'email', size: 250},
+    {header: 'Phone', accessorKey: 'phone_number', size: 300},
+    {header: 'Role', accessorKey: 'role_name', size: 150},
 ] 

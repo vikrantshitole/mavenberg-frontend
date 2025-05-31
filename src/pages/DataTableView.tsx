@@ -2,8 +2,9 @@ import React from 'react'
 import Table from '../components/Table'
 import { TABLEHEADERS } from '../utils/constants'
 import useLargeSetData from '../hooks/useLargeSetData'
+import CustomizedTable from '../components/CustomizedTable'
 
-const DataTableView = () => {
+const DataTableView = ({isCustom=false}) => {
   const { data, loading, error } = useLargeSetData()
   console.log(data, loading, error);
   if (loading) {
@@ -29,7 +30,7 @@ const DataTableView = () => {
       <h4 className='text-2xl font-semibold mb-4'>Data Table Views</h4>
       <p className='text-gray-600 mb-6'>This page will display different views of data tables.</p>
       <div className='bg-white shadow-md rounded-lg p-6'>
-        <Table headers={TABLEHEADERS} data={data} />
+        {isCustom?<CustomizedTable headers={TABLEHEADERS} data={data}/>:<Table headers={TABLEHEADERS} data={data} />}
       </div>
     </div>
   )
