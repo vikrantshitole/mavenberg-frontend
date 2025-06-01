@@ -1,54 +1,117 @@
-# React + TypeScript + Vite
+# Mavenberg Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React-based frontend application built with TypeScript, Redux, and Material UI components.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Modern React with TypeScript
+- Redux for state management
+- Material UI components
+- Responsive design with Tailwind CSS
+- Protected routes with authentication
+- Data visualization with Recharts
+- Custom table components with Material React Table
+- Error boundary implementation
+- Lazy loading for better performance
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Framework**: React 19
+- **Language**: TypeScript
+- **State Management**: Redux Toolkit
+- **Routing**: React Router v7
+- **UI Components**: Material React Table
+- **Styling**: Tailwind CSS, SCSS
+- **Build Tool**: Vite
+- **Charts**: Recharts
+- **HTTP Client**: Axios
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 📁 Project Structure
+
+```
+src/
+├── assets/         # Static assets
+├── components/     # Reusable components
+├── hooks/         # Custom React hooks
+├── layout/        # Layout components
+├── pages/         # Page components
+├── services/      # API services
+├── store/         # Redux store configuration
+├── types/         # TypeScript type definitions
+├── utils/         # Utility functions
+├── App.tsx        # Main application component
+└── main.tsx       # Application entry point
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🚀 Getting Started
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Prerequisites
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+- Node.js (Latest LTS version recommended)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/vikrantshitole/mavenberg-frontend.git
 ```
+
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Start the development server:
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+### Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run lint` - Run ESLint
+- `npm run preview` - Preview production build
+
+## 🔐 Authentication
+
+The application implements protected routes using React Router and Redux for authentication state management. Users must be authenticated to access the dashboard and other protected routes.
+
+## 📊 Components
+
+### Core Components
+
+- `ErrorBoundary` - Global error handling
+- `PrivateRoute` - Route protection
+- `Header` - Application header
+- `Drawer` - Navigation drawer
+- `CustomizedTable` - Enhanced table component
+- `Analytics` - Data visualization
+- `FallBack` - Loading state component
+
+## 🎨 Styling
+
+The project uses a combination of:
+- Tailwind CSS for utility-first styling
+- SCSS for custom styles
+- Material UI components for consistent design
+
+## 🔧 Configuration
+
+- `vite.config.ts` - Vite configuration
+- `tailwind.config.js` - Tailwind CSS configuration
+- `tsconfig.json` - TypeScript configuration
+- `eslint.config.js` - ESLint configuration
+
+## 📝 License
+
+[Add your license information here]
+
+## 👥 Contributing
+
+[Add contribution guidelines here]
